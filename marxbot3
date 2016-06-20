@@ -2,6 +2,7 @@
 ##marxbot3000
 ##by Zoe Smith
 
+import tweepy
 import random
 
 bad_isms = ["maoism", "third worldism", "social democracy", "Hoxhaism", "capitalism", "discourse", "idealism", "gender", "tankies"]
