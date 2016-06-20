@@ -1,0 +1,65 @@
+#!usr/bin/env python
+##marxbot3000
+##by Zoe Smith
+
+import random
+
+bad_isms = ["maoism", "third worldism", "social democracy", "Hoxhaism", "capitalism", "discourse", "idealism", "gender", "tankies"]
+good_isms = ["materialism", "socialism", "communards", "material analysis", "radicalism"]
+people = ["Noam Chomsky", "Bernie Sanders", "Justin Trudeau", "Jeremy Corbyn", "Hillary"]
+verbs = ["cuck", "vore", "end", "kill", "stop", "fuck", "beat", "steal"] 
+nouns = ["the means of production", "labor-power", "wage labor", "surplus value", "labor theory of value", "tendency of rate of profit to fall", "the discourse", "materialist analysis", "gender"]
+memes = ["dat boi", "primitivism", "technophilia", "discourse", "dank memes", "Lisa Frank", "Chili's", "Shrek", "Banksy"]
+start_phrases_long = ["Guess who's about to ", "Time to ", "Please don't ", "I'm gonna ", "You can't ", "You gotta ", "I have to ", ]
+start_phrases = ["You come into my house, you disrespect my ", "have you considered,,,,perhaps???", "delete your ", "Fully automated luxury ", "Please tag your ", "blocked. blocked. blocked. none of you are free of ", "The signs as "]
+
+def killed_luxemburg(lst):
+    return random.choice(lst) + " killed Rosa Luxemburg"
+
+def big_bunch_of_shit(lst):
+    return "I've never heard of this " + random.choice(lst) \
+    + " but it sounds like a big bunch of shit to me"
+
+def friends_we_made(lst):
+    return "Maybe the real " + random.choice(lst) + " was the friends we made along the way"
+
+def all_along(lst):
+    return "Maybe the " + random.choice(lst) + " was inside us all along"
+
+def rand_shitpost_long(list1, list2, list3):
+    return random.choice(list1) + random.choice(list2) + " " + random.choice(list3)
+
+def rand_shitpost(list1, list2):
+    return random.choice(list1) + random.choice(list2)
+
+def sneme(x):
+    new_string = ""
+    vowels = "aeiou"
+    if x[0] in vowels:
+	new_string += "sn" + x + "(snail " + x + ")"
+    else:
+        new_string += "sn"
+	for i in range(1, len(x)):
+	    new_string += x[i]
+	new_string += "(snail " + x + ")"
+	return new_string
+
+def is_communist(x):
+    return random.choice(x) + " is communist"
+
+post1 = killed_luxemburg(people)
+post2 = big_bunch_of_shit(bad_isms)
+post3 = friends_we_made(nouns)
+post4 = all_along(nouns)
+post5 = rand_shitpost_long(start_phrases_long, verbs, nouns)
+post6 = rand_shitpost(start_phrases, nouns)
+post7 = sneme(random.choice(good_isms))
+post8 = sneme(random.choice(nouns))
+post9 = is_communist(memes)
+
+l = [post1, post2, post3, post4, post5, post6, post5, post6, post7, post8, post9, post9]
+
+def post(lst):
+    return random.choice(lst)
+
+post(l)
