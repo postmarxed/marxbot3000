@@ -5,6 +5,12 @@
 import tweepy
 import random
 
+from secrets import *
+
+auth = tweepy.OAuthHandler(C_KEY, C_SECRET)  
+auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)  
+api = tweepy.API(auth)
+
 bad_isms = ["maoism", "third worldism", "social democracy", "Hoxhaism", "capitalism", "discourse", "idealism", "gender", "tankies"]
 good_isms = ["materialism", "socialism", "communards", "material analysis", "radicalism"]
 people = ["Noam Chomsky", "Bernie Sanders", "Justin Trudeau", "Jeremy Corbyn", "Hillary"]
