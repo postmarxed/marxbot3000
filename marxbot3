@@ -4,6 +4,7 @@
 
 import tweepy
 import random
+import time
 
 from secrets import *
 
@@ -69,4 +70,4 @@ l = [post1, post2, post3, post4, post5, post6, post5, post6, post7, post8, post9
 def post(lst):
     return random.choice(lst)
 
-post(l)
+api.update_status(post(l))
