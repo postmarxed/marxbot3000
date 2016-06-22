@@ -11,8 +11,8 @@ auth = tweepy.OAuthHandler(C_KEY, C_SECRET)
 auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)  
 api = tweepy.API(auth)
 
-bad_isms = ["maoism", "third worldism", "social democracy", "Hoxhaism", "capitalism", "idealism", "gender", "tankies"]
-good_isms = ["materialism", "socialism", "communards", "material analysis", "radicalism"]
+isms1 = ["maoism", "third worldism", "social democracy", "Hoxhaism", "capitalism", "idealism", "gender", "tankies"]
+isms2 = ["materialism", "socialism", "communards", "material analysis", "radicalism"]
 people = ["Noam Chomsky", "Bernie Sanders", "Justin Trudeau", "Jeremy Corbyn", "Hillary"]
 verbs = ["cuck", "vore", "end", "kill", "stop", "fuck", "beat", "steal"] 
 nouns = ["the means of production", "labor-power", "wage labor", "surplus value", "labor theory of value", "tendency of rate of profit to fall", "discourse", "materialist analysis", "gender", "dialectics"]
@@ -82,10 +82,10 @@ def say_fuck(x):
 
 big_list = []
 
-for item in good_isms:
+for item in isms2:
     big_list.append(item)
 
-for item in bad_isms:
+for item in isms1:
     big_list.append(item)
 
 for item in nouns:
@@ -98,12 +98,12 @@ def su(x):
     return "Garnet, Amethyst, and Pearl... and " + random.choice(x)
 
 post1 = killed_luxemburg(people)
-post2 = big_bunch_of_shit(bad_isms)
+post2 = big_bunch_of_shit(isms1)
 post3 = friends_we_made(nouns)
 post4 = all_along(nouns)
 post5 = rand_shitpost_long(start_phrases_long, verbs, nouns)
 post6 = rand_shitpost(start_phrases, nouns)
-post7 = sneme(random.choice(good_isms))
+post7 = sneme(random.choice(isms2))
 post8 = sneme(random.choice(nouns))
 post9 = is_communist(memes)
 post10 = snakememe(random.choice(idealists))
