@@ -4,9 +4,8 @@
 
 import tweepy
 import random
-import time
 
-from secrets import *
+from tokens import *
 
 auth = tweepy.OAuthHandler(C_KEY, C_SECRET)  
 auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)  
