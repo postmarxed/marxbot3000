@@ -11,14 +11,17 @@ auth = tweepy.OAuthHandler(C_KEY, C_SECRET)
 auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)  
 api = tweepy.API(auth)
 
-bad_isms = ["maoism", "third worldism", "social democracy", "Hoxhaism", "capitalism", "discourse", "idealism", "gender", "tankies"]
+bad_isms = ["maoism", "third worldism", "social democracy", "Hoxhaism", "capitalism", "idealism", "gender", "tankies"]
 good_isms = ["materialism", "socialism", "communards", "material analysis", "radicalism"]
 people = ["Noam Chomsky", "Bernie Sanders", "Justin Trudeau", "Jeremy Corbyn", "Hillary"]
 verbs = ["cuck", "vore", "end", "kill", "stop", "fuck", "beat", "steal"] 
-nouns = ["the means of production", "labor-power", "wage labor", "surplus value", "labor theory of value", "tendency of rate of profit to fall", "the discourse", "materialist analysis", "gender"]
-memes = ["dat boi", "primitivism", "technophilia", "discourse", "dank memes", "Lisa Frank", "Chili's", "Shrek", "Banksy"]
+nouns = ["the means of production", "labor-power", "wage labor", "surplus value", "labor theory of value", "tendency of rate of profit to fall", "discourse", "materialist analysis", "gender", "dialectics"]
+nouns_articles = ["the proletariat", "the bourgeoisie", "the discourse", "the dialectic", "the Paris Commune", "the dicatorship of the proletariat", "the state"]
+memes = ["dat boi", "primitivism", "technophilia", "discourse", "dank memes", "Lisa Frank", "Chilis", "Shrek", "Banksy", "Overwatch", "Captain America", "pineapple pizza"]
 start_phrases_long = ["Guess who's about to ", "Time to ", "Please don't ", "I'm gonna ", "You can't ", "You gotta ", "I have to ", ]
-start_phrases = ["You come into my house, you disrespect my ", "have you considered,,,,perhaps???", "delete your ", "Fully automated luxury ", "Please tag your ", "blocked. blocked. blocked. none of you are free of ", "The signs as "]
+start_phrases = ["You come into my house, you disrespect my ", "have you considered,,,,perhaps???", "delete your ", "Fully automated luxury ", "Please tag your ", "blocked. blocked. blocked. none of you are free of ", "The signs as ", "Fuck "]
+idealists = ["liberals", "fascists", "reactionaries", "tankies", "primmies", "techies", "hoxhaists"]
+marxists = ["Engels", "Gramsci", "Luxemburg", "Althusser", "Foucault", "Zizek", "David Harvey", "Lukacs"]
 
 def killed_luxemburg(lst):
     return random.choice(lst) + " killed Rosa Luxemburg"
@@ -28,7 +31,7 @@ def big_bunch_of_shit(lst):
     + " but it sounds like a big bunch of shit to me"
 
 def friends_we_made(lst):
-    return "Maybe the real " + random.choice(lst) + " was the friends we made along the way"
+    return "The real " + random.choice(lst) + " was the friends we made along the way"
 
 def all_along(lst):
     return "Maybe the " + random.choice(lst) + " was inside us all along"
@@ -43,16 +46,56 @@ def sneme(x):
     new_string = ""
     vowels = "aeiou"
     if x[0] in vowels:
-	new_string += "sn" + x + "(snail " + x + ")"
+	new_string += "sn" + x + " (snail " + x + ")"
+	return new_string
     else:
         new_string += "sn"
 	for i in range(1, len(x)):
 	    new_string += x[i]
-	new_string += "(snail " + x + ")"
+	new_string += " (snail " + x + ")"
+	return new_string
+
+def snakememe(x):
+    new_string = ""
+    vowels = "aeiou"
+    if x[0] in vowels:
+		new_string += "snake " + x + ", or sn" + x + ", control our government at the highest level"
+		return new_string
+    else:
+        new_string += "snake " + x + ", or sn"
+	for i in range(1, len(x)):
+		new_string += x[i]
+	new_string += ", control our government at the highest level"
 	return new_string
 
 def is_communist(x):
     return random.choice(x) + " is communist"
+
+double_list = []
+for item in marxists:
+    double_list.append(item)
+for item in people:
+    double_list.append(item)
+
+def say_fuck(x):
+    return "Let " + random.choice(x) + " say fuck!!!"
+
+big_list = []
+
+for item in good_isms:
+    big_list.append(item)
+
+for item in bad_isms:
+    big_list.append(item)
+
+for item in nouns:
+    big_list.append(item)    
+
+def gotdamn_feet(x):
+    return "he Boot Too Big For He Gotdamn " + random.choice(x)
+
+def su(x):
+    return "Garnet, Amethyst, and Pearl... and " + random.choice(x)
 
 post1 = killed_luxemburg(people)
 post2 = big_bunch_of_shit(bad_isms)
@@ -63,8 +106,14 @@ post6 = rand_shitpost(start_phrases, nouns)
 post7 = sneme(random.choice(good_isms))
 post8 = sneme(random.choice(nouns))
 post9 = is_communist(memes)
+post10 = snakememe(random.choice(idealists))
+post11 = gotdamn_feet(big_list)
+post12 = su(marxists)
+post13 = say_fuck(double_list)
+post14 = rand_shitpost(start_phrases, nouns_articles)
+post15 = rand_shitpost_long(start_phrases_long, verbs, nouns_articles)
 
-l = [post1, post2, post3, post4, post5, post6, post5, post6, post7, post8, post9, post9]
+l = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15]
 
 def post(lst):
     return random.choice(lst)
