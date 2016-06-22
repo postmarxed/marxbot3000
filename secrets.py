@@ -1,4 +1,7 @@
-C_KEY = "loWO1jeA4ovnaXwVDrA9lsjvr"
-C_SECRET = "3KiwwsmdWerzPYaCEkRwQLeG50gAZkiZcCboFVdeeQa2EPB4cS"
-A_TOKEN = "744777441747472386-7izRBPNFuFeyerBF2Wt6nqlXOiBgTTE"
-A_TOKEN_SECRET = "rGB5xA5kYJ3GUf24kOKvP8HZy57N7SODHzjO208SRPWBb"
+##access tokens from twitter go in the quotes
+##i didn't want to publish these as it would compromise the bots twitter account
+
+C_KEY = " "
+C_SECRET = " "
+A_TOKEN = " "
+A_TOKEN_SECRET = " "
