@@ -5,26 +5,42 @@
 import tweepy
 import random
 
-from tokens import *
+from secrets import *
 
 auth = tweepy.OAuthHandler(C_KEY, C_SECRET)  
 auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)  
 api = tweepy.API(auth)
 
-isms1 = ["maoism", "third worldism", "social democracy", "Hoxhaism", "capitalism", "idealism", "gender", "tankies"]
-isms2 = ["materialism", "socialism", "communards", "material analysis", "radicalism"]
-people = ["Noam Chomsky", "Bernie Sanders", "Justin Trudeau", "Jeremy Corbyn", "Hillary"]
-verbs = ["cuck", "vore", "end", "kill", "stop", "fuck", "beat", "steal"] 
-nouns = ["the means of production", "labor-power", "wage labor", "surplus value", "labor theory of value", "tendency of rate of profit to fall", "discourse", "materialist analysis", "gender", "dialectics"]
-nouns_articles = ["the proletariat", "the bourgeoisie", "the discourse", "the dialectic", "the Paris Commune", "the dicatorship of the proletariat", "the state"]
-memes = ["dat boi", "primitivism", "technophilia", "discourse", "dank memes", "Lisa Frank", "Chilis", "Shrek", "Banksy", "Overwatch", "Captain America", "pineapple pizza"]
-start_phrases_long = ["Guess who's about to ", "Time to ", "Please don't ", "I'm gonna ", "You can't ", "You gotta ", "I have to ", ]
-start_phrases = ["You come into my house, you disrespect my ", "have you considered,,,,perhaps???", "delete your ", "Fully automated luxury ", "Please tag your ", "blocked. blocked. blocked. none of you are free of ", "The signs as ", "Fuck "]
-idealists = ["liberals", "fascists", "reactionaries", "tankies", "primmies", "techies", "hoxhaists"]
-marxists = ["Engels", "Gramsci", "Luxemburg", "Althusser", "Foucault", "Zizek", "David Harvey", "Lukacs"]
+bad_isms = ["maoism", "third worldism", "social democracy", "Hoxhaism", "capitalism", "idealism", "gender", "Trotskyism", "actually existing socialism", "socialism in one country"]
+good_isms = ["materialism", "socialism", "material analysis", "proletarian revolution", "communism"]
+people = ["Noam Chomsky", "Bernie Sanders", "Justin Trudeau", "Jeremy Corbyn", "Hillary", "Hoxha", "Tito"]
+verbs = ["cuck", "vore", "end", "kill", "stop", "fuck", "smash", "steal"] 
+good_nouns = ["materialist analysis", "dialectics", "revolutions", "proletarian revolution", "labor theory of value", "tendency of rate of profit to fall", "critique of political economy", "class war"]
+bad_nouns = ["labor-power", "wage labor", "surplus value", "states", "discourse", "gender"]
+the_good_nouns = ["the proletariat", "the dialectic", "the Paris Commune", "the dicatorship of the proletariat"]
+the_bad_nouns = ["the bourgeoisie", "the discourse", "the state", "the means of production"]
+memes = ["dat boi", "primitivism", "technophilia", "discourse", "dank memes", "Lisa Frank", "Chilis", "Shrek", "Banksy", "Overwatch", "Captain America", "pineapple pizza", "Kojima"]
+good_starts_long = ["Please don't ", "You can't ", "You wouldn't ", "Why would you ", "I'd rather not "]
+bad_starts_long = ["Guess who's about to ", "Time to ", "I'm gonna ", "I have to ", "I will "]
+good_starts = ["You come into my house, you disrespect my ", "have you considered,,,,perhaps???", "Fully automated luxury ", "The signs as ", "Defend "]
+bad_starts = ["delete your ", "Please tag your ", "blocked. blocked. blocked. none of you are free of ", "Fuck "]
+idealists = ["liberals", "fascists", "reactionaries", "tankies", "primmies", "techies", "hoxhaists", "social democrats"]
+marxists = ["Engels", "Gramsci", "Luxemburg", "Althusser", "Foucault", "Zizek", "David Harvey", "Lukacs", "Bordiga", "Adorno"]
 
-def killed_luxemburg(lst):
-    return random.choice(lst) + " killed Rosa Luxemburg"
+nouns = []
+for item in good_nouns:
+	nouns.append(item)
+for item in bad_nouns:
+	nouns.append(item)
+
+the_nouns = []
+for item in the_good_nouns:
+	the_nouns.append(item)
+for item in the_bad_nouns:
+	the_nouns.append(item)
+
+def stole_fizzy(lst):
+    return random.choice(lst) + " STOLE fizzy lifting drinks!!!"
 
 def big_bunch_of_shit(lst):
     return "I've never heard of this " + random.choice(lst) \
@@ -69,7 +85,8 @@ def snakememe(x):
 	return new_string
 
 def is_communist(x):
-    return random.choice(x) + " is communist"
+    new_list = ["liberal", "communist", "revisionism", "counter-revolutionary", "reactionary", "revolutionary", "proletarian", "bourgeois"]
+    return random.choice(x) + " is " + random.choice(new_list)
 
 double_list = []
 for item in marxists:
@@ -82,10 +99,10 @@ def say_fuck(x):
 
 big_list = []
 
-for item in isms2:
+for item in good_isms:
     big_list.append(item)
 
-for item in isms1:
+for item in bad_isms:
     big_list.append(item)
 
 for item in nouns:
@@ -97,25 +114,85 @@ def gotdamn_feet(x):
 def su(x):
     return "Garnet, Amethyst, and Pearl... and " + random.choice(x)
 
-post1 = killed_luxemburg(people)
-post2 = big_bunch_of_shit(isms1)
+mccree_list = []
+for item in marxists:
+	mccree_list.append(item)
+for item in idealists:
+	mccree_list.append(item)
+for item in bad_isms:
+	mccree_list.append(item)
+for item in good_isms:
+	mccree_list.append(item)
+
+def mccree(x):
+	return "*McCree voice*: It's high " + random.choice(x)
+
+def talking_heads(x, y):
+	return "This is not my beautiful " + random.choice(x) + "!!! This is not my beautiful " + random.choice(y) + "!!!"
+
+good_stuff = []
+for item in good_nouns:
+	good_stuff.append(item)
+for item in good_isms:
+	good_stuff.append(item)
+
+def cheap_tactic(x, y):
+	return random.choice(x) + " is just a cheap tactic to make weak " + random.choice(y) + " stronger"
+
+dark_list = good_isms + marxists
+
+def dark(x, y):
+	item1 = random.choice(x)
+	item2 = random.choice(y)
+	return "Dark " + item1 + " show me the forbidden " + item2
+
+really_big_list = mccree_list + people + nouns + the_nouns
+
+def tag(x):
+	return "Tag yourself I'm " + random.choice(x)
+
+def fuckers(x):
+	return "You fuckers don't know about my " + random.choice(x)
+
+post1 = stole_fizzy(people)
+post2 = big_bunch_of_shit(bad_isms)
 post3 = friends_we_made(nouns)
 post4 = all_along(nouns)
-post5 = rand_shitpost_long(start_phrases_long, verbs, nouns)
-post6 = rand_shitpost(start_phrases, nouns)
-post7 = sneme(random.choice(isms2))
-post8 = sneme(random.choice(nouns))
-post9 = is_communist(memes)
-post10 = snakememe(random.choice(idealists))
-post11 = gotdamn_feet(big_list)
-post12 = su(marxists)
-post13 = say_fuck(double_list)
-post14 = rand_shitpost(start_phrases, nouns_articles)
-post15 = rand_shitpost_long(start_phrases_long, verbs, nouns_articles)
+post5 = rand_shitpost_long(bad_starts_long, verbs, bad_nouns)
+post6 = rand_shitpost(good_starts, good_nouns)
+post7 = rand_shitpost(bad_starts, bad_nouns)
+post8 = sneme(random.choice(good_isms))
+post9 = sneme(random.choice(nouns))
+post10 = is_communist(memes)
+post11 = snakememe(random.choice(idealists))
+post12 = gotdamn_feet(big_list)
+post13 = su(marxists)
+post14 = say_fuck(double_list)
+post15 = rand_shitpost_long(bad_starts_long, verbs, the_bad_nouns)
+post16 = rand_shitpost_long(good_starts_long, verbs, the_good_nouns)
+post17 = mccree(mccree_list)
+post18 = talking_heads(good_isms, good_nouns)
+post19 = talking_heads(good_nouns, good_isms)
+post20 = cheap_tactic(bad_isms, good_stuff)
+post21 = dark(dark_list, good_nouns)
+post22 = tag(really_big_list)
+post23 = fuckers(good_nouns)
 
-l = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15]
+l = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post15, post16, post17, post18, post19, post20, post21, post22, post23]
 
 def post(lst):
     return random.choice(lst)
 
-api.update_status(post(l))
+##collect the most recent 200 tweets in a list
+statuses = []
+tweet_objs = api.user_timeline(screen_name = "marxbot3000", count = 200)
+
+for tweet in tweet_objs:
+    statuses.append(tweet.text)
+
+new_post = post(l)
+
+if new_post not in statuses:
+    api.update_status(new_post)
+else:
+    print new_post
