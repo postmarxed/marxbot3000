@@ -5,27 +5,27 @@
 import tweepy
 import random
 
-from tokens import *
+from secrets import *
 
 auth = tweepy.OAuthHandler(C_KEY, C_SECRET)  
 auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)  
 api = tweepy.API(auth)
 
-bad_isms = ["maoism", "third worldism", "social democracy", "Hoxhaism", "capitalism", "idealism", "gender", "Trotskyism", "actually existing socialism", "socialism in one country"]
-good_isms = ["materialism", "socialism", "material analysis", "proletarian revolution", "communism"]
-people = ["Noam Chomsky", "Bernie Sanders", "Justin Trudeau", "Jeremy Corbyn", "Hillary", "Hoxha", "Tito"]
+bad_isms = ["maoism", "third worldism", "social democracy", "Hoxhaism", "capitalism", "idealism", "gender", "Trotskyism", "actually existing socialism", "socialism in one country", "edwadism", "autonomaoism", "MEME Thought"]
+good_isms = ["materialism", "socialism", "material analysis", "proletarian revolution", "communism", "edwadism", "autonomaoism"]
+people = ["Noam Chomsky", "Bernie Sanders", "Justin Trudeau", "Jeremy Corbyn", "Hillary", "Hoxha", "Tito", "edwad"]
 verbs = ["cuck", "vore", "end", "kill", "stop", "fuck", "smash", "steal"] 
 good_nouns = ["materialist analysis", "dialectics", "revolutions", "proletarian revolution", "labor theory of value", "tendency of rate of profit to fall", "critique of political economy", "class war"]
 bad_nouns = ["labor-power", "wage labor", "surplus value", "states", "discourse", "gender"]
 the_good_nouns = ["the proletariat", "the dialectic", "the Paris Commune", "the dicatorship of the proletariat"]
 the_bad_nouns = ["the bourgeoisie", "the discourse", "the state", "the means of production"]
-memes = ["dat boi", "primitivism", "technophilia", "discourse", "dank memes", "Lisa Frank", "Chilis", "Shrek", "Banksy", "Overwatch", "Captain America", "pineapple pizza", "Kojima"]
+memes = ["dat boi", "primitivism", "technophilia", "discourse", "dank memes", "Lisa Frank", "Chilis", "Shrek", "Banksy", "Overwatch", "Captain America", "pineapple pizza", "Kojima", "edwad", "edwadism", "MEME Thought", "autonomaoism"]
 good_starts_long = ["Please don't ", "You can't ", "You wouldn't ", "Why would you ", "I'd rather not "]
 bad_starts_long = ["Guess who's about to ", "Time to ", "I'm gonna ", "I have to ", "I will "]
 good_starts = ["You come into my house, you disrespect my ", "have you considered,,,,perhaps???", "Fully automated luxury ", "The signs as ", "Defend "]
 bad_starts = ["delete your ", "Please tag your ", "blocked. blocked. blocked. none of you are free of ", "Fuck "]
 idealists = ["liberals", "fascists", "reactionaries", "tankies", "primmies", "techies", "hoxhaists", "social democrats"]
-marxists = ["Engels", "Gramsci", "Luxemburg", "Althusser", "Foucault", "Zizek", "David Harvey", "Lukacs", "Bordiga", "Adorno"]
+marxists = ["Engels", "Gramsci", "Luxemburg", "Althusser", "Foucault", "Zizek", "David Harvey", "Lukacs", "Bordiga", "Adorno", "edwad"]
 
 nouns = []
 for item in good_nouns:
@@ -85,7 +85,7 @@ def snakememe(x):
 	return new_string
 
 def is_communist(x):
-    new_list = ["liberal", "communist", "revisionism", "counter-revolutionary", "reactionary", "revolutionary", "proletarian", "bourgeois"]
+    new_list = ["liberal", "communist", "revisionism", "counter-revolutionary", "reactionary", "revolutionary", "proletarian", "bourgeois", "ahistorical"]
     return random.choice(x) + " is " + random.choice(new_list)
 
 double_list = []
@@ -154,6 +154,15 @@ def tag(x):
 def fuckers(x):
 	return "You fuckers don't know about my " + random.choice(x)
 
+def dicks_out(x):
+	return "Dicks out for " + random.choice(x)
+
+more_good_stuff = good_stuff + the_good_nouns
+bad_stuff = bad_isms + bad_nouns + the_bad_nouns
+
+def an_intellectual(x, y):
+	return "someone: " + random.choice(x) + "\n" + "me, an intellectual: " + random.choice(y) 
+
 post1 = stole_fizzy(people)
 post2 = big_bunch_of_shit(bad_isms)
 post3 = friends_we_made(nouns)
@@ -177,18 +186,20 @@ post20 = cheap_tactic(bad_isms, good_stuff)
 post21 = dark(dark_list, good_nouns)
 post22 = tag(really_big_list)
 post23 = fuckers(good_nouns)
+post24 = dicks_out(really_big_list)
+post25 = an_intellectual(bad_stuff, more_good_stuff)
 
-l = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post15, post16, post17, post18, post19, post20, post21, post22, post23]
+l = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post15, post16, post16, post17, post18, post19, post20, post21, post22, post23, post24, post25]
 
 def post(lst):
     return random.choice(lst)
 
-##collect the most recent 200 tweets in a list
 statuses = []
-tweet_objs = api.user_timeline(screen_name = "marxbot3000", count = 200)
+tweet_objs = api.user_timeline(screen_name = "marxbot3000", count = 1700)
 
 for tweet in tweet_objs:
     statuses.append(tweet.text)
+
 
 new_post = post(l)
 
